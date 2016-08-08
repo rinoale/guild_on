@@ -1,4 +1,6 @@
 class GuildsController < ApplicationController
+  helper_method :left_menu_node
+
   def index
     @guilds = Guild.all
   end
@@ -46,5 +48,12 @@ class GuildsController < ApplicationController
 
   def guild_params
     params.require(:guild).permit(:guild_master)
+  end
+
+  def left_menu_node
+    @left_menu_node = [
+      { menu_name: 'GuildInfo', link: guilds_path },
+      { menu_name: 'Parties', link: guilds_path }
+    ]
   end
 end

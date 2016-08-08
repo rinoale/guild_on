@@ -1,13 +1,12 @@
 <div class='expanded row'>
-  <div class='large-2 columns'>ROOT LINK
+  <div class='large-2 columns'>
+    <a href='/'>Guild On</a>
   </div>
   <div class='large-10 columns'>
     <ul class='menu'>
-      <li class='active'><a href='#'>One</a></li>
-      <li><a href='#'>One</a></li>
-      <li><a href='#'>One</a></li>
-      <li><a href='#'>One</a></li>
-      <li><a href='#'>One</a></li>
+      <% upper_menu_node.each do |menu| %>
+        <li><a href='<%= menu[:link] %>'><%= menu[:menu_name] %></a></li>
+      <% end %>
     </ul>
   </div>
 </div>
