@@ -50,16 +50,23 @@ module Guilds
     #   redirect_to guilds_path
     # end
     #
-    # private
-    #
+    private
+
     def board_params
       params.require(:board).permit(:title, :content, :author)
     end
-    #
-    # def left_menu_node
-    #   @left_menu_node ||= [
-    #     { menu_name: 'New Guild', link: new_guild_path }
-    #   ]
-    # end
+
+    def left_menu_node
+      @left_menu_node = [
+        { menu_name: guild.guild_name, link: guild_path(guild) },
+        { menu_name: 'Parties', link: guild_path(guild) },
+        { menu_name: 'Votes', link: guild_path(guild) },
+        { menu_name: 'Guild BBS', link: guild_guild_boards_path(guild) }
+      ]
+    end
+
+    def guild
+      @guild = Guild.find_by_guild_address(params[:guild_guild_address])
+    end
   end
 end
