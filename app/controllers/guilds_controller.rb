@@ -4,10 +4,10 @@ class GuildsController < ApplicationController
   end
 
   def show
-    @guild = Guild.find(params[:id])
+    @guild = Guild.find_by_guild_address(params[:guild_address])
 
     @left_menu_node = [
-      { menu_name: @guild.id, link: guild_path(@guild) },
+      { menu_name: @guild.guild_name, link: guild_path(@guild) },
       { menu_name: 'Parties', link: guild_path(@guild) },
       { menu_name: 'Votes',   link: guilds_path },
       { menu_name: 'Guild BBS' }
@@ -52,7 +52,7 @@ class GuildsController < ApplicationController
   private
 
   def guild_params
-    params.require(:guild).permit(:guild_master)
+    params.require(:guild).permit(:guild_address, :guild_name, :guild_master)
   end
 
   def left_menu_node
