@@ -1,6 +1,4 @@
 class GuildsController < ApplicationController
-  helper_method :left_menu_node
-
   def index
     @guilds = Guild.all
   end
@@ -52,7 +50,7 @@ class GuildsController < ApplicationController
 
   def left_menu_node
     @left_menu_node = [
-      { menu_name: 'GuildInfo', link: guilds_path },
+      { menu_name: 'New Guild', link: new_guild_path },
       { menu_name: 'Parties', link: guilds_path }
     ]
   end
