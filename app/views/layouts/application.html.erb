@@ -16,12 +16,12 @@
       <%= render 'layouts/menus/upper_menu' %>
     </div>
 
-    <div class='expanded row sticky-container'>
-      <div class='large-2 columns'>
+    <div class='expanded row sticky-container' data-sticky-container>
+      <div class='large-2 columns' data-sticky data-anchor='main_content'>
         <%= render 'layouts/menus/left_menu' %>
       </div>
 
-      <div class='large-10 columns'>
+      <div class='large-10 columns' id='main_content'>
         <%= yield %>
       </div>
     </div>
