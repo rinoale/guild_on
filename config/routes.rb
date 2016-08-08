@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root 'top#index'
 
   resources :guilds, param: :guild_address do
-    resources :guild_boards, path: 'boards' do
+    resources :guild_boards, path: 'boards', controller: 'guilds/guild_boards' do
     end
   end
   # The priority is based upon order of creation: first created -> highest priority.

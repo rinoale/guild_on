@@ -10,7 +10,7 @@ class GuildsController < ApplicationController
       { menu_name: @guild.guild_name, link: guild_path(@guild) },
       { menu_name: 'Parties', link: guild_path(@guild) },
       { menu_name: 'Votes', link: guild_path(@guild) },
-      { menu_name: 'Guild BBS', link: guild_path(@guild) }
+      { menu_name: 'Guild BBS', link: guild_guild_boards_path(@guild) }
     ]
   end
 
