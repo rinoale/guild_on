@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   root 'top#index'
 
   resources :guilds, param: :guild_address do
+    resources :guild_boards, path: 'boards' do
+    end
   end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
