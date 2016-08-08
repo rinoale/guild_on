@@ -9,7 +9,8 @@ class GuildsController < ApplicationController
     @left_menu_node = [
       { menu_name: @guild.id, link: guild_path(@guild) },
       { menu_name: 'Parties', link: guild_path(@guild) },
-      { menu_name: 'Guilds',  link: guilds_path }
+      { menu_name: 'Votes',   link: guilds_path },
+      { menu_name: 'Guild BBS' }
     ]
   end
 

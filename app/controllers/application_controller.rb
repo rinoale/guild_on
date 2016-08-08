@@ -17,7 +17,8 @@ class ApplicationController < ActionController::Base
   def upper_menu_node
     @upper_menu_node = [
       { menu_name: 'Introduce', link: root_path },
-      { menu_name: 'FreeBoard', link: root_path },
+      { menu_name: 'Guilds', link: guilds_path },
+      { menu_name: 'Free BBS', link: root_path },
       { menu_name: 'Gallery', link: root_path },
       { menu_name: 'QnA', link: root_path }
     ]
