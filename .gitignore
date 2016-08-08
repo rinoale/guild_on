@@ -17,7 +17,6 @@
 /tmp
 /vendor
 /lib
-/db
 /log
 /bin
 /shared
