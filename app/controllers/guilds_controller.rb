@@ -5,6 +5,12 @@ class GuildsController < ApplicationController
 
   def show
     @guild = Guild.find(params[:id])
+
+    @left_menu_node = [
+      { menu_name: @guild.id, link: guild_path(@guild) },
+      { menu_name: 'Parties', link: guild_path(@guild) },
+      { menu_name: 'Guilds',  link: guilds_path }
+    ]
   end
 
   def new
@@ -49,9 +55,8 @@ class GuildsController < ApplicationController
   end
 
   def left_menu_node
-    @left_menu_node = [
-      { menu_name: 'New Guild', link: new_guild_path },
-      { menu_name: 'Parties', link: guilds_path }
+    @left_menu_node ||= [
+      { menu_name: 'New Guild', link: new_guild_path }
     ]
   end
 end
