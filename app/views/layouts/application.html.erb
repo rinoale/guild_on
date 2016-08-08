@@ -12,8 +12,18 @@
   </head>
 
   <body>
+    <div class='top-bar'>
+      <%= render 'layouts/menus/upper_menu' %>
+    </div>
 
-    <%= yield %>
+    <div class='expanded row sticky-container'>
+      <div class='large-2 columns'>
+        <%= render 'layouts/menus/left_menu' %>
+      </div>
 
+      <div class='large-10 columns'>
+        <%= yield %>
+      </div>
+    </div>
   </body>
 </html>
