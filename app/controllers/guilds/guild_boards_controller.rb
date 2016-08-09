@@ -16,15 +16,15 @@ module Guilds
     # end
     #
     def new
-      @guild = Guild.new
+      @board = guild.guild_board.new
     end
 
     def edit
-      @guild = Guild.find(params[:id])
+      @board = guild.guild_board.find(params[:id])
     end
 
     def create
-      @board = Board.new(guild_params)
+      @board = guild.guild_board.new(board_params)
 
       if @board.save
         redirect_to @board
@@ -32,24 +32,24 @@ module Guilds
         render 'new'
       end
     end
-    #
-    # def update
-    #   @guild = Guild.find(params[:id])
-    #
-    #   if @guild.update(guild_params)
-    #     redirect_to @guild
-    #   else
-    #     render 'edit'
-    #   end
-    # end
-    #
-    # def destroy
-    #   @guild = Guild.find(params[:id])
-    #   @guild.destroy
-    #
-    #   redirect_to guilds_path
-    # end
-    #
+
+    def update
+      @board = guild.guild_board.find(params[:id])
+
+      if @board.update(board_params)
+        redirect_to @board
+      else
+        render 'edit'
+      end
+    end
+
+    def destroy
+      @board = guild.guild_board.find(params[:id])
+      @board.destroy
+
+      redirect_to guild_guild_boards_path
+    end
+
     private
 
     def board_params
