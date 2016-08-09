@@ -19,11 +19,11 @@ class GuildsController < ApplicationController
   end
 
   def edit
-    @guild = Guild.find(params[:id])
+    @guild = Guild.find_by_guild_address(params[:guild_address])
   end
 
   def create
-    @guild = Guild.new(guild_params)
+    @guild = Guild.find_by_guild_address(params[:guild_address])
 
     if @guild.save
       redirect_to @guild
@@ -33,7 +33,7 @@ class GuildsController < ApplicationController
   end
 
   def update
-    @guild = Guild.find(params[:id])
+    @guild = Guild.find_by_guild_address(params[:guild_address])
 
     if @guild.update(guild_params)
       redirect_to @guild
@@ -43,7 +43,7 @@ class GuildsController < ApplicationController
   end
 
   def destroy
-    @guild = Guild.find(params[:id])
+    @guild = Guild.find_by_guild_address(params[:guild_address])
     @guild.destroy
 
     redirect_to guilds_path
