@@ -23,7 +23,7 @@ class GuildsController < ApplicationController
   end
 
   def create
-    @guild = Guild.find_by_guild_address(params[:guild_address])
+    @guild = Guild.new(guild_params)
 
     if @guild.save
       redirect_to @guild
