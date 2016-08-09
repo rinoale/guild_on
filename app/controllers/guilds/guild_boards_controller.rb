@@ -1,7 +1,7 @@
 module Guilds
   class GuildBoardsController < ApplicationController
     def index
-      @boards = GuildBoard.all
+      @boards = guild.guild_board
     end
     #
     # def show
