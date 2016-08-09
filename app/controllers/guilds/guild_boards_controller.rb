@@ -27,10 +27,9 @@ module Guilds
 
     def create
       @guild_board = guild.guild_board.new(board_params)
-      debugger
 
       if @guild_board.save
-        redirect_to guild_guild_board_url(guiid, @guild_board)
+        redirect_to guild_guild_board_url(guild, @guild_board)
       else
         render 'new'
       end
@@ -40,7 +39,7 @@ module Guilds
       @guild_board = guild.guild_board.find(params[:id])
 
       if @guild_board.update(board_params)
-        redirect_to @guild_board
+        redirect_to guild_guild_board_url(guild, @guild_board)
       else
         render 'edit'
       end

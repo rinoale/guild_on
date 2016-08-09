@@ -1,0 +1,17 @@
+<% content_for :title, guild.guild_name.to_s %>
+<p>
+<strong>title</strong>
+<%= @guild_board.title %>
+</p>
+
+<p>
+<strong>content</strong>
+<%= @guild_board.content %>
+</p>
+
+<p>
+<strong>Author</strong>
+<%= @guild_board.author %>
+</p>
+
+<%= link_to 'Edit', edit_guild_guild_board_path(guild, @guild_board) %>
