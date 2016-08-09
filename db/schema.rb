@@ -11,12 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160809010040) do
+ActiveRecord::Schema.define(version: 20160809011935) do
 
   create_table "guild_boards", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "guild_id"
+    t.string   "title"
+    t.text     "content"
   end
 
   create_table "guilds", force: :cascade do |t|
