@@ -1,5 +1,5 @@
 <ul class='menu vertical'>
   <% left_menu_node.each do |menu| %>
-    <li><a href='<%= menu[:link] %>'><%= menu[:menu_name] %></a></li>
+    <li class='<%= menu[:active] %>'><a href='<%= menu[:link] %>'><%= menu[:menu_name] %></a></li>
   <% end %>
 </ul>

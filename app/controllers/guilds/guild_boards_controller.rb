@@ -8,13 +8,6 @@ module Guilds
 
     def show
       @guild_board = guild.guild_board.find(params[:id])
-
-      @left_menu_node = [
-        { menu_name: @guild.guild_name, link: guild_path(@guild) },
-        { menu_name: 'Parties', link: guild_path(@guild) },
-        { menu_name: 'Votes', link: guild_path(@guild) },
-        { menu_name: 'Guild BBS', link: guild_path(@guild) }
-      ]
     end
 
     def new
@@ -60,10 +53,10 @@ module Guilds
 
     def left_menu_node
       @left_menu_node = [
-        { menu_name: guild.guild_name, link: guild_path(guild) },
+        { id: 'guilds#show', menu_name: guild.guild_name, link: guild_path(guild) },
         { menu_name: 'Parties', link: guild_path(guild) },
         { menu_name: 'Votes', link: guild_path(guild) },
-        { menu_name: 'Guild BBS', link: guild_guild_boards_path(guild) }
+        { id: 'guild_boards#show', menu_name: 'Guild BBS', link: guild_guild_boards_path(guild), active: 'active' }
       ]
     end
 
