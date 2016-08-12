@@ -12,10 +12,12 @@
       <td><%= guild.guild_name %></td>
       <td><%= guild.guild_master %></td>
       <td><%= link_to 'Show', guild_path(guild) %></td>
+      <% if current_user && current_user.admin? %>
       <td><%= link_to 'Edit', edit_guild_path(guild) %></td>
       <td><%= link_to 'Delete', guild_path(guild),
                                 method: :delete,
                                 data: { confirm: 'Are you sure?' } %></td>
+      <% end %>
     </tr>
   <% end %>
 </table>
