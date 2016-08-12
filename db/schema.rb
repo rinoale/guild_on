@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160812080234) do
+ActiveRecord::Schema.define(version: 20160812082340) do
 
   create_table "guild_boards", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 20160812080234) do
     t.datetime "updated_at",      null: false
     t.string   "emailid"
     t.string   "password_digest"
+    t.string   "username"
   end
 
 end

@@ -5,6 +5,9 @@ Rails.application.routes.draw do
     resources :guild_boards, path: 'boards', controller: 'guilds/guild_boards' do
     end
   end
+
+  get '/signup' => 'users#new'
+  post '/users' => 'users#create'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
