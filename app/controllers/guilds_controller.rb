@@ -1,6 +1,6 @@
 class GuildsController < ApplicationController
   before_filter :find_guild_before_action, only: %i(show edit update destroy)
-  before_filter :create_left_menu, only: %i(index show new edit)
+  before_filter :create_left_menu, only: %i(index show new edit create)
 
   def index
     @guilds = Guild.all
@@ -57,7 +57,7 @@ class GuildsController < ApplicationController
         { menu_name: 'Votes', link: guild_path(@guild) },
         { id: 'guild_boards#show', menu_name: 'Guild BBS', link: guild_guild_boards_path(@guild) }
       ]
-    elsif %w(new index).include? params[:action]
+    elsif %w(new index create).include? params[:action]
       @left_menu_node = [
         { id: 'guilds#new', menu_name: 'New Guild', link: new_guild_path }
       ]
