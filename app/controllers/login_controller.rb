@@ -3,7 +3,7 @@ class LoginController < ApplicationController
   end
 
   def create
-    user = User.find_by_email(params[:emailid])
+    user = User.find_by_emailid(params[:emailid])
 
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
