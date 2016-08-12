@@ -1,6 +1,8 @@
 <h1>BBS</h1>
 
-<%= link_to 'Write', new_guild_guild_board_path %>
+<% if current_user %>
+  <%= link_to 'Write', new_guild_guild_board_path %>
+<% end %>
 <table>
   <tr>
     <th>title</th>

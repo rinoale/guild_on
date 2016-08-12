@@ -2,6 +2,8 @@ module Guilds
   class GuildBoardsController < ApplicationController
     helper_method :guild
 
+    before_filter :authorize, only: %i(new create)
+
     def index
       @guild_boards = guild.guild_board
     end
@@ -20,6 +22,7 @@ module Guilds
 
     def create
       @guild_board = guild.guild_board.new(board_params)
+      @guild_board.author = current_user.username
 
       if @guild_board.save
         redirect_to guild_guild_board_url(guild, @guild_board)
@@ -48,7 +51,7 @@ module Guilds
     private
 
     def board_params
-      params.require(:guild_board).permit(:title, :content, :author)
+      params.require(:guild_board).permit(:title, :content)
     end
 
     def left_menu_node
