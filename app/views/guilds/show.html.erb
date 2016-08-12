@@ -9,4 +9,6 @@
 <%= @guild.guild_master %>
 </p>
 
-<%= link_to 'Edit', edit_guild_path(@guild) %>
+<% if current_user && current_user.admin? %>
+  <%= link_to 'Edit', edit_guild_path(@guild) %>
+<% end %>

@@ -15,10 +15,12 @@
       <td><%= guild_board.title %></td>
       <td><%= guild_board.author %></td>
       <td><%= link_to 'Show', guild_guild_board_path(guild, guild_board) %></td>
+      <% if current_user && guild_board.author == current_user.username %>
       <td><%= link_to 'Edit', edit_guild_guild_board_path(guild, guild_board) %></td>
       <td><%= link_to 'Delete', guild_guild_board_path(guild, guild_board),
                                 method: :delete,
                                 data: { confirm: 'Are you sure?' } %></td>
+      <% end %>
     </tr>
   <% end %>
 </table>

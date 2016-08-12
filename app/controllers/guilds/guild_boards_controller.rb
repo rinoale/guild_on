@@ -2,7 +2,7 @@ module Guilds
   class GuildBoardsController < ApplicationController
     helper_method :guild
 
-    before_filter :authorize, only: %i(new create)
+    before_filter :authorize, except: %i(index show)
 
     def index
       @guild_boards = guild.guild_board

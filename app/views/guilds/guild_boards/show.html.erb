@@ -14,4 +14,6 @@
 <%= @guild_board.author %>
 </p>
 
-<%= link_to 'Edit', edit_guild_guild_board_path(guild, @guild_board) %>
+<% if current_user && @guild_board.author == current_user.username %>
+  <%= link_to 'Edit', edit_guild_guild_board_path(guild, @guild_board) %>
+<% end %>
