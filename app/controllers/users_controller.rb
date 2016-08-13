@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  include UsersHelper
   def new
   end
 
@@ -7,7 +8,8 @@ class UsersController < ApplicationController
 
     if @user.save
       session[:user_id] = @user.id
-      'send auth process'
+
+      send_auth_code @user.username
     else
       redirect_to '/signup'
     end
