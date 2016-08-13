@@ -8,6 +8,8 @@ Rails.application.routes.draw do
 
   # signup
   get '/signup' => 'users#new'
+  post '/signup/auth' => 'users#authenticate'
+  patch '/signup/check_auth' => 'users#check_auth_code'
   post '/users' => 'users#create'
 
   # login
