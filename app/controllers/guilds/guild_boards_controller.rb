@@ -3,9 +3,13 @@ module Guilds
     helper_method :guild
 
     before_filter :authorize, except: %i(index show)
+    before_filter :pagination, only: :index
 
     def index
-      @guild_boards = guild.guild_board
+      limit = 5
+      offset = (params[:page] - 1) * limit
+
+      @guild_boards = guild.guild_board.limit(limit).offset(offset).order(id: :desc)
     end
 
     def show
@@ -49,6 +53,12 @@ module Guilds
     end
 
     private
+
+    def pagination
+      params[:page] = Integer(params[:page]) || 1
+    rescue
+      params[:page] = 1
+    end
 
     def board_params
       params.require(:guild_board).permit(:title, :content)
