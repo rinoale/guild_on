@@ -6,7 +6,6 @@ module Guilds
     before_filter :pagination, only: :index
 
     def index
-
       @guild_boards = guild.guild_board.page(params[:page]).order(id: :desc)
     end
 
