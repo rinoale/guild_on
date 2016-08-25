@@ -16,4 +16,7 @@
 
 <% if current_user && @guild_board.author == current_user.username %>
   <%= link_to 'Edit', edit_guild_guild_board_path(guild, @guild_board) %>
+  <%= link_to 'Delete', guild_guild_board_path(guild, @guild_board),
+                        method: :delete,
+                        data: { confirm: 'Are you sure?' } %>
 <% end %>

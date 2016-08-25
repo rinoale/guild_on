@@ -6,10 +6,8 @@ module Guilds
     before_filter :pagination, only: :index
 
     def index
-      limit = 5
-      offset = (params[:page] - 1) * limit
 
-      @guild_boards = guild.guild_board.limit(limit).offset(offset).order(id: :desc)
+      @guild_boards = guild.guild_board.page(params[:page]).order(id: :desc)
     end
 
     def show
