@@ -15,8 +15,16 @@
 </p>
 
 <% if current_user && @guild_board.author == current_user.username %>
-  <%= link_to 'Edit', edit_guild_guild_board_path(guild, @guild_board) %>
-  <%= link_to 'Delete', guild_guild_board_path(guild, @guild_board),
-                        method: :delete,
-                        data: { confirm: 'Are you sure?' } %>
+  <a href='<%= edit_guild_guild_board_path(guild, @guild_board) %>' class='button hollow'>Edit</a>
+  <a data-open='deleteBoard' class='button hollow'>Delete</a>
 <% end %>
+
+<div class='reveal' id='deleteBoard' data-reveal>
+  <h1>Are you sure?</h1>
+  <a href='<%= guild_guild_board_path(guild, @guild_board) %>' class='button' data-method='delete'>Yes</a>
+  <a class='button' data-close>No</a>
+  <button class='close-button' data-close aria-label='Close modal' type='button'>
+    <span aria-hidden='true'>&times;</span>
+  </button>
+</div>
+<script>$(document).foundation();</script>
