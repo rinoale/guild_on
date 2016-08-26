@@ -40,6 +40,12 @@ gem 'bcrypt'
 # Use will_paginate
 gem 'will_paginate-foundation'
 
+# store session on redis
+gem 'redis-session-store'
+
+# redis
+gem 'redis'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'

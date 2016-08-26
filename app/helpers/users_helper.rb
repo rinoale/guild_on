@@ -10,4 +10,14 @@ module UsersHelper
       kor_name = buffer_array.map do |value| '%' + value.upcase end.join
     end
   end
+
+  def trial_exceeded? username
+    return true if AuthTrial.get(username) == '3'
+
+    trial = AuthTrial.get username
+
+    AuthTrial.set username, (trial.nil? ? 1 : Integer(trial) + 1)
+
+    false
+  end
 end

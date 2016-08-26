@@ -1,0 +1,1 @@
+::AuthTrial = Redis.current

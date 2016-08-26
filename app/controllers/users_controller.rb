@@ -6,12 +6,10 @@ class UsersController < ApplicationController
   def authenticate
     @user = User.new(user_params)
 
-    if @user.save
-      session[:user_id] = @user.id
-
-      send_auth_code @user.username
+    if trial_exceeded? @user.username
+      render text: 'exceed'
     else
-      redirect_to '/signup'
+      send_auth_code @user.username
     end
   end
 
